@@ -1,0 +1,65 @@
+import time
+from selenium import webdriver
+import smtplib
+from selenium.webdriver.chrome.options import Options
+
+EMAIL_ADDRESS = "Personalbotoutlook@gmail.com"
+EMAIL_PASSWORD = "JeffreyEpstein2000"
+subject = "This  "
+body = "money time"
+msg = f'Subject : {subject}\n\n{body}'
+
+browser = "C:\webdrivers/chromedriver"
+
+options = Options()
+options.add_argument("--incognito")
+options.add_argument("--disable-blink-features=AutomationControlled")
+
+driver = webdriver.Chrome(browser, options=options)
+# 1660 super page (out of stock)
+# browser.get("https://www.bestbuy.ca/en-ca/product/asus-tuf-gaming-geforce-gtx-1660-super-oc-6gb-ddr6-video-card/14969729")
+
+# safe page (in stock button)
+driver.get("https://www.bestbuy.ca/en-ca/product/logitech-g305-12000-dpi-wireless-optical-gaming-mouse-black/12642295")
+
+
+# browser.get("https://www.bestbuy.ca/en-ca/product/insignia-43-1080p-hd-led-tv-ns-43d420na20-only-at-best-buy/14500009")
+
+buybutton = False
+with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
+    smtp.ehlo()
+    smtp.starttls()
+    smtp.ehlo()
+    smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+
+    while not buybutton:
+        # check if the button is available via searching for class name
+        TheButtonItself = driver.find_element_by_xpath("//*[@id=\"test\"]/button").is_enabled()
+        if not TheButtonItself:
+            # button is not ready
+            print("button is not ready yet")
+
+            # refresh
+            time.sleep(10)
+            driver.refresh()
+
+        elif TheButtonItself:
+
+            # smtp.sendmail(EMAIL_ADDRESS, "bartekkowalski465@gmail.com", msg) // send email as a notification
+            addToCartButton = addButton = driver.find_element_by_xpath("//*[@id=\"test\"]/button")
+            addToCartButton.click()
+            print("The button was clicked")
+            buybutton = True
+
+            # 5 second delay for catch up
+            time.sleep(5)
+
+            cart = driver.find_element_by_class_name("basketIcon_1lhg2")
+            cart.click()
+
+            time.sleep(5)
+
+            checkout = driver.find_element_by_xpath("//*[@id=\"root\"]/div/div[4]/div[2]/div/section/div/main/section/section[2]/div[2]/div/a/span")
+            checkout.click()
+
+            time.sleep(2)
