@@ -1,8 +1,8 @@
 import time
 from selenium import webdriver
 import smtplib
-EMAIL_ADDRESS = "Personalbotoutlook@gmail.com"
-EMAIL_PASSWORD = "JeffreyEpstein2000"
+EMAIL_ADDRESS = "********"
+EMAIL_PASSWORD = "*****"
 subject = "This  "
 body = "One of the graphics cards went up go grab it"
 msg = f'Subject : {subject}\n\n{body}'
@@ -36,7 +36,7 @@ with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
             browser.refresh()
 
         elif TheButtonItself:
-            smtp.sendmail(EMAIL_ADDRESS, "bartekkowalski465@gmail.com", msg)
+            smtp.sendmail(EMAIL_ADDRESS, "************", msg)
 
 
 
