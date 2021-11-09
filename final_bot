@@ -7,14 +7,14 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 
-EMAIL_ADDRESS = "Personalbotoutlook@gmail.com"
-EMAIL_PASSWORD = "JeffreyEpstein2000"
+EMAIL_ADDRESS = "******"
+EMAIL_PASSWORD = "****"
 subject = "Card is open"
 body = "Time to try to buy"
 msg = f'Subject : {subject}\n\n{body}'
 
 subject2 = "The item has been bought, check your computer now"
-body2 = "Hopefully it worked???"
+body2 = "complete."
 msg2 = f'Subject : {subject2}\n\n{body2}'
 
 browser = "C:\webdrivers/chromedriver"
