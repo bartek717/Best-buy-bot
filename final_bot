@@ -77,9 +77,9 @@ with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
 
             password = driver.find_element_by_xpath("//*[@id=\"password\"]")
 
-            username.send_keys("bartekkowalski465@gmail.com")
+            username.send_keys("***************")
             time.sleep(1.6)
-            password.send_keys("Bartek2004!")
+            password.send_keys("***********")
             time.sleep(1.4)
             sign_in = driver.find_element_by_xpath("//*[@id=\"signIn\"]/div/button/span")
             sign_in.click()
