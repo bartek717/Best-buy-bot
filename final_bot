@@ -91,7 +91,7 @@ with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
             time.sleep(1)
 
             cvv = driver.find_element_by_xpath("//*[@id=\"cvv\"]")
-            cvv.send_keys("359")
+            cvv.send_keys("***")
             cvv.send_keys(Keys.ENTER)
 
             time.sleep(10)
