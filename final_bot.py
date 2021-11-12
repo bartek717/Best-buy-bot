@@ -1,3 +1,6 @@
+# INSTALLING ALL DEPENDENCIES
+# ENSURE THAT YOU HAVE SELENIUM INSTALLED, PYTHON INSTALLED, AND CHROMEDRIVER STORED IN "C:\webdrivers/chromedriver"
+
 import time
 from selenium import webdriver
 import smtplib
@@ -7,6 +10,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 
+################################################
+
+# Declaring email adress and password for the email adress that is being sued to send email to your personal email.
+# In order for this to work, you need to setup a gmail account that can send email autonomously.
 EMAIL_ADDRESS = "******"
 EMAIL_PASSWORD = "****"
 subject = "Card is open"
@@ -17,6 +24,7 @@ subject2 = "The item has been bought, check your computer now"
 body2 = "complete."
 msg2 = f'Subject : {subject2}\n\n{body2}'
 
+# enter the file location of your chromedriver
 browser = "C:\webdrivers/chromedriver"
 
 options = Options()
